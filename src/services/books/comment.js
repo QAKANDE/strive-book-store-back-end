@@ -27,7 +27,7 @@ commentsRouter.get("/", async (req, res, next) => {
 commentsRouter.get("/:id", async (req, res, next) => {
     try {
       const comments = await readComment(commentJsonPath)
-      const comment = comments.find((b) => b.id === req.params.id)
+      const comment = comments.find((b) => b.asin === req.params.id)
       if (comment) {
         res.send(comment)
       } else {
